@@ -1,62 +1,5 @@
-class lab{
-
-    public static void main(String[] args) {
-        int n = 10;
-        long[]e=new long[n];
-        n=0;
-        System.out.println("Создать одномерный массив a типа long. Заполнить его чётными числами от 4 до 18 включительно в порядке убывания.");
-        for (long x = 4; x <= 18; x++) {
-            if (x%2 == 0){
-                e[n] = x;
-                n++;
-            }
-        }
-        for (int x = 0; x < n; x++) {
-            System.out.println(e[x]);
-        }
-        System.out.println("Создать одномерный массив x типа double. Заполнить его 13-ю случайными числами в диапазоне от -3.0 до 4.0.");
-        int l = 13;
-        double[]x=new double[l];
-        double a = -3.0f;
-        double b = 4.0f;
-
-        for (int z = 0; z < l; z++) {
-            x[z] = a + (double) (Math.random() * b);
-        }
-        for (int z = 0; z < l; z++) {
-            System.out.println(x[z]);
-        }
-
-
-        System.out.println(".............................");
-        double[][]t=new double[8][13];
-
-        System.out.println("........... 3...........");
-        for (int i = 0; i < 8; i++){
-            for(int j = 0; j<13; j++){
-                if (e[i]==10){
-                    t[i][j]=Math.pow(Math.pow(Math.tan(2/3)*(1-x[j]),3),2*Math.pow(0.5*Math.pow(x[j]-(1/2),x[j]),Math.sin(x[j])));
-                }
-                else if ((e[i]==6) || (e[i]==8) || (e[i]==12) || (e[i]==16)){
-                    t[i][j]=Math.exp(Math.pow(Math.pow(Math.abs(x[j])/(Math.abs(x[j])+1),x[j])+1,Math.cos(Math.cos(x[j]))));
-                }
-                else{
-                    t[i][j]=Math.pow((3/4)*Math.pow((1/2)*Math.pow(x[j]/2,Math.asin((x[j]+0.5)/7)),(2*Math.pow(Math.sin(x[j]),3)))
-                            ,Math.asin(Math.pow(Math.E,-Math.abs(x[j]))-1)/Math.exp(Math.abs(x[j])*(2-Math.sin(x[j]))));
-                }
-            }
-        }
-        for (int i = 0; i < 8; i++){
-            for(int j = 0; j<13; j++){
-
-                System.out.print(String.format("%.5f,", t[i][j]));
-
-            }
-            System.out.println();
-        }
-    }
-}
-class old {
+// Variant 1029
+class Lab1 {
     public static void main(String[] args) {
         //Создание массива e типа Short(16-разрядное целое число, от -32768 до 32767)
         int n = 10;
@@ -85,9 +28,9 @@ class old {
                     d[i][j] = Math.asin(0.25 * ((x[j] + 1) / 28));
                 } else if ((e[i] == 10) || (e[i] == 12) || (e[i] == 14) || (e[i] == 20) || (e[i] == 24)) {
                     d[i][j] = Math.pow(Math.pow(Math.tan(x[j]) * (Math.pow((0.5 / x[j]), 3) - 1),
-                            Math.asin((x[j] + 1) / 28)), 0.5 / (2 * Math.atan((x[j] + 1) / 28) + 2));
+                            Math.asin((x[j] + 1) / 28)), 0.5d / (2 * Math.atan((x[j] + 1) / 28) + 2));
                 } else {
-                    d[i][j] = Math.pow(Math.E, Math.pow(Math.E, Math.pow((2.0f / 3.0f) / Math.pow(Math.E, x[j]), 3)));
+                    d[i][j] = Math.pow(Math.E, Math.pow(Math.E, Math.pow((2d/3) / Math.pow(Math.E, x[j]), 3)));
                 }
             }
         }
@@ -142,4 +85,3 @@ class old {
         System.out.println("_________________________________________________________________________________________________________________________________________________________________________");
     }
 }
-
